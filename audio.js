@@ -52,7 +52,7 @@ function son()
 	}
 }
 
-function volume()
+$(".volume").on('change', function()
 {
 	var thisAudio = this.parentElement.children[0];
 	var boutonSon = $(this).parents(".player").children(".son");
@@ -73,7 +73,7 @@ function volume()
 		boutonSon.removeClass("icon-volume-off");
 		boutonSon.addClass("icon-volume-up");
 	}
-}
+});
 
 for(var i = 0; i < $("audio").length; i++)
 {
@@ -212,4 +212,3 @@ $(".progress").mousemove(function (e) {
 
 $(".play").click(lecture);
 $(".son").click(son);
-$(".volume").click(volume);
