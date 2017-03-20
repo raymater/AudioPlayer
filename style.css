@@ -1,0 +1,122 @@
+.player audio
+{
+	display:none;
+}
+
+.player
+{
+	display:inline-flex;
+	flex-direction:row;
+	background-color: #333;
+	height:34px;
+	color:white;
+	font-family:sans-serif;
+	box-sizing:border-box;
+	font-size:1em;
+	padding:5px;
+	width:100%;
+	margin-bottom:1em;
+}
+
+.player:last-of-type
+{
+	margin-bottom:0px;
+}
+
+.player .play, .player .son
+{
+	box-sizing:border-box;
+	border-style:none;
+	color:white;
+	padding:0px;
+	background-color:#333;
+	font-size:1em;
+	margin-right:5px;
+}
+
+.player .son
+{
+	margin-left:5px;
+}
+
+.player .control
+{
+	height:24px;
+	box-sizing:border-box;
+	cursor:pointer;
+}
+
+.player .control:hover
+{
+	color:#CCC;
+}
+
+.player .control:active
+{
+	color:#888;
+}
+
+.player .progress
+{
+	flex-grow: 1;
+	min-width:75px;
+	height:24px;
+	background-color:#AAA;
+	box-sizing:border-box;
+	position: relative;
+	cursor:pointer;
+}
+
+.player .progressPlay
+{
+	width:0%;
+	height:24px;
+	background-color:red;
+	display:inline-flex;
+	position: absolute;
+	cursor:pointer;
+}
+
+.player .volume
+{
+	width: 100px;
+	background-color: #333;
+	height:22px;
+	cursor:pointer;
+}
+
+.player .temps
+{
+	font-size:1em;
+	vertical-align:middle;
+	padding-left:7px;
+	padding-top:3px;
+	cursor:default;
+}
+
+.player .currentTime:hover
+{
+	cursor:default;
+}
+
+.player .currentTime
+{
+	display:none;
+	font-size:0.8em;
+	padding:5px;
+	border-radius:2px;
+	background-color:#222;
+	position:absolute;
+	margin-top:-28px;
+}
+
+.player .progressHover
+{
+	width:0%;
+	height:24px;
+	background-color:rgba(0,0,0,0.4);
+	display:inline-flex;
+	position: absolute;
+	z-index:1;
+	cursor:pointer;
+}
