@@ -48,12 +48,12 @@
 
 .player .control:hover
 {
-	color:#CCC;
+	color:#AAA;
 }
 
 .player .control:active
 {
-	color:#888;
+	color:#666;
 }
 
 .player .progress
@@ -92,6 +92,12 @@
 	padding-left:7px;
 	padding-top:3px;
 	cursor:default;
+	font-family:sans-serif;
+	width:65px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .player .currentTime:hover
@@ -108,6 +114,10 @@
 	background-color:#222;
 	position:absolute;
 	margin-top:-28px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .player .progressHover
@@ -119,4 +129,12 @@
 	position: absolute;
 	z-index:1;
 	cursor:pointer;
+	box-sizing:border-box;
+	border-right-style:solid;
+	border-right-color:black;
+	border-right-width:1px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }

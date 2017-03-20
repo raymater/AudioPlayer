@@ -1,7 +1,7 @@
 var valeurSon = $(".volume").val();
 var fini = false;
 
-$(".player").append('<button class="play control"></button><div class="progress"><div class="currentTime"></div><div class="progressHover"></div><div class="progressPlay"></div></div><div class="temps">00:00</div><button class="son control icon-volume-up"></button><input type="range" class="volume" min="0" max="10" value="10">');
+$(".player").append('<button class="play control"></button><div class="progress"><div class="currentTime"></div><div class="progressHover"></div><div class="progressPlay"></div></div><div class="temps">00:00:00</div><button class="son control icon-volume-up"></button><input type="range" class="volume" min="0" max="10" value="10">');
 
 function lecture()
 {
@@ -100,12 +100,17 @@ for(var i = 0; i < $("audio").length; i++)
 			{
 				time = "0" + time;
 			}
-			thisTemps.text("00:" + time);
+			thisTemps.text("00:00:" + time);
 		}
 		else
 		{
-			var minutes = Math.floor(time / 60);
-			var secondes = time - (minutes * 60);
+			var heures = 0;
+			if(time >= 3600)
+			{
+				heures = Math.floor(time / 3600);
+			}
+			var minutes = Math.floor((time - (heures * 3600)) / 60);
+			var secondes = time - (heures * 3600) - (minutes * 60);
 			if(minutes < 10)
 			{
 				minutes = "0" + minutes;
@@ -114,7 +119,11 @@ for(var i = 0; i < $("audio").length; i++)
 			{
 				secondes = "0" + secondes;
 			}
-			thisTemps.text(minutes + ":" + secondes);
+			if(heures < 10)
+			{
+				heures = "0" + heures;
+			}
+			thisTemps.text(heures + ":" + minutes + ":" + secondes);
 		}
 		
 		thisProgressPlay.css("width", ((thisAudio.currentTime / thisAudio.duration) * 100) + "%");
@@ -162,7 +171,7 @@ $(".progress").mousemove(function (e) {
 	var thisProgressHover = $(this).parents(".player").children(".progress").children(".progressHover");
 	
 	var position = ((e.clientX - $(this).offset().left) / parseInt(thisProgress.css("width"), 10));
-	thisCurrentTime.css("margin-left", (e.clientX - $(this).position().left - 22) + "px");
+	thisCurrentTime.css("margin-left", (e.clientX - $(this).position().left - 31) + "px");
 	
 	var time = Math.floor(thisAudio.duration * position);
 	
@@ -172,12 +181,17 @@ $(".progress").mousemove(function (e) {
 		{
 			time = "0" + time;
 		}
-		thisCurrentTime.text("00:" + time);
+		thisCurrentTime.text("00:00:" + time);
 	}
 	else
 	{
-		var minutes = Math.floor(time / 60);
-		var secondes = time - (minutes * 60);
+		var heures = 0;
+		if(time >= 3600)
+		{
+			heures = Math.floor(time / 3600);
+		}
+		var minutes = Math.floor((time - (heures * 3600)) / 60);
+		var secondes = time - (heures * 3600) - (minutes * 60);
 		if(minutes < 10)
 		{
 			minutes = "0" + minutes;
@@ -186,7 +200,11 @@ $(".progress").mousemove(function (e) {
 		{
 			secondes = "0" + secondes;
 		}
-		thisCurrentTime.text(minutes + ":" + secondes);
+		if(heures < 10)
+		{
+			heures = "0" + heures;
+		}
+		thisCurrentTime.text(heures + ":" + minutes + ":" + secondes);
 	}
 	
 	thisProgressHover.css("width", ((e.clientX - $(this).offset().left) / parseInt(thisProgress.css("width"), 10)) * 100 + "%")
